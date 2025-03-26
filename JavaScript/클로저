@@ -1,0 +1,21 @@
+# 클로저란 무엇인가
+
+> 함수가 선언될 때의 스코프를 기억해 함수가 생성된 이후에도 그 스코프에 접근할 수 있는 기능
+> 
+- 외부 함수 스코프에서 내부 함수 스코프로 접근이 불가능하다
+- 내부 함수 스코프에서 외부 함수 스코프로 접근이 가능하다, 외부함수에서 선언된 변수 접근 가능
+- 외부 함수가 종료가 되어도 클로저 함수는 외부 함수의 스코프, 함수가 선언된 어휘적 환경에 접근할 수 있다
+
+```jsx
+function outer() {
+	let message = 'Hello! ';
+
+	return function inner(name) { // inner함수는 클로저
+		return message = message + name;
+	}
+}
+
+let greeting = outer(); // 외부함수 호출. 변수 greeting은 inner 함수를 참조
+
+console.log(greeting('Janet')); // Hello! Janet
+```
